@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trực Tiếp Thể Thao - Tin Tức Nóng Hổi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: white;
+        }
+        .live-badge {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #b91c1c;
+            padding-left: 100%; 
+            box-sizing: border-box;
+        }
+        .ticker-move {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-name: ticker;
+            animation-duration: 30s;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+            font-size: 1rem;
+            color: white;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 min-h-screen flex flex-col">
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-red-500">VN</span>
+                <span class="text-2xl font-bold text-white">SPORTS</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" class="hover:text-red-400 transition">Trang Chủ</a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" class="hover:text-red-400 transition">Bóng Đá</a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" class="hover:text-red-400 transition">Bóng Rổ</a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" class="hover:text-red-400 transition">Lịch Thi Đấu</a>
+            </nav>
+            <div>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold transition duration-300 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Đăng Nhập
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="ticker-wrap">
+        <div class="ticker-move">
+            <div class="ticker-item">🏆 Việt Nam vô địch AFF Cup!</div>
+            <div class="ticker-item">⚽ Manchester United thắng 3-0 trước Liverpool.</div>
+            <div class="ticker-item">🏀 NBA: Lakers đánh bại Warriors trong hiệp phụ.</div>
+            <div class="ticker-item">🎾 Novak Djokovic giành Grand Slam thứ 25.</div>
+        </div>
+    </div>
+    <main class="container mx-auto px-4 py-8 flex-grow space-y-12">
+        <section id="vietnam-team" class="bg-gradient-to-r from-red-900/50 to-slate-900 p-6 rounded-2xl border border-red-900/30">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-3xl font-bold flex items-center text-red-500">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="VN Flag" class="w-8 h-6 mr-3 shadow-sm">
+                    Đội Tuyển Quốc Gia Việt Nam
+                </h2>
+                <span class="text-sm text-red-300 animate-pulse">● Trực tiếp độc quyền</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div id="vn-live-box" class="lg:col-span-2 bg-black rounded-xl overflow-hidden shadow-2xl relative aspect-video group cursor-pointer">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kh%C3%A1n_%C4%91%C3%A0i_B_-_S%C3%A2n_v%E1%BA%ADn_%C4%91%E1%BB%99ng_Qu%E1%BB%91c_gia_M%E1%BB%B9_%C4%90%C3%ACnh.jpg" alt="Vietnam National Team Live" class="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center z-10">
+                        <div class="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300 backdrop-blur-sm animate-pulse">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent z-20">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="bg-red-600 text-white text-xs px-2 py-0.5 rounded font-bold animate-pulse">LIVE</span>
+                            <span class="text-slate-300 text-sm font-semibold">Vòng loại World Cup 2026 - Khu vực Châu Á</span>
+                        </div>
+                        <div class="flex items-end justify-between">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white drop-shadow-md">Việt Nam <span id="vn-score" class="text-red-500 mx-2">1 - 0</span> Iraq</h3>
+                                <p class="text-slate-300 mt-1 flex items-center gap-2" id="vn-timer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Sân vận động Mỹ Đình - 45' Hiệp 1
+                                </p>
+                            </div>
+                            <div class="hidden sm:block text-right">
+                                <div class="bg-slate-900/80 backdrop-blur px-4 py-2 rounded-lg border border-slate-700 hover:border-yellow-500 transition group/odds">
+                                    <div class="text-xs text-slate-400 mb-1">Tỷ lệ trực tuyến</div>
+                                    <div class="flex gap-4 font-mono font-bold text-yellow-400">
+                                        <span>VN <span class="text-white">1.95</span></span>
+                                        <span>HOÀ <span class="text-white">3.20</span></span>
+                                        <span>IRQ <span class="text-white">2.10</span></span>
+                                    </div>
+                                    <div class="text-[10px] text-green-400 mt-1 opacity-0 group-hover/odds:opacity-100 transition">Cập nhật 2s trước...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-4 flex flex-col h-full border border-slate-700/50">
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-2 mb-4">
+                        <h3 class="font-bold text-red-400">Tin Tức Tuyển VN 🔴</h3>
+                        <span class="text-xs bg-red-600 text-white px-2 py-0.5 rounded animate-pulse">TRỰC TIẾP</span>
+                    </div>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="mb-4 block bg-gradient-to-r from-yellow-600 to-yellow-500 text-white text-center py-2 rounded-lg font-bold hover:from-yellow-500 hover:to-yellow-400 transition shadow-lg transform hover:scale-105 border border-yellow-400/50 group">
+                        <span class="group-hover:animate-bounce inline-block">💰</span> Ủng Hộ Đội Tuyển (Đặt Cược)
+                    </a>
+                    <div class="space-y-4 overflow-y-auto pr-2 custom-scrollbar flex-grow" id="vn-news-feed">
+                        <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="flex gap-3 items-start hover:bg-slate-700/50 p-2 rounded transition cursor-pointer border-l-2 border-green-500 pl-2 block">
+                            <div>
+                                <h4 class="text-sm font-semibold leading-tight text-white">Quang Hải đang khởi động bên đường biên.</h4>
+                                <span class="text-xs text-green-400">Vừa xong</span>
+                            </div>
+                        </a>
+                        <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="flex gap-3 items-start hover:bg-slate-700/50 p-2 rounded transition cursor-pointer border-l-2 border-slate-600 pl-2 block">
+                            <div>
+                                <h4 class="text-sm font-semibold leading-tight text-slate-300">HLV Troussier chỉ đạo chiến thuật tấn công tổng lực.</h4>
+                                <span class="text-xs text-slate-500">2 phút trước</span>
+                            </div>
+                        </a>
+                        <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="flex gap-3 items-start hover:bg-slate-700/50 p-2 rounded transition cursor-pointer border-l-2 border-slate-600 pl-2 block">
+                            <div>
+                                <h4 class="text-sm font-semibold leading-tight text-slate-300">Cổ động viên nhuộm đỏ sân Mỹ Đình, không khí cực kỳ sôi động.</h4>
+                                <span class="text-xs text-slate-500">5 phút trước</span>
+                            </div>
+                        </a>
+                        <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="flex gap-3 items-start hover:bg-slate-700/50 p-2 rounded transition cursor-pointer border-l-2 border-slate-600 pl-2 block">
+                            <div>
+                                <h4 class="text-sm font-semibold leading-tight text-slate-300">Đội hình ra sân chính thức được công bố.</h4>
+                                <span class="text-xs text-slate-500">30 phút trước</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="fixed bottom-4 right-4 bg-yellow-500 text-black font-bold p-4 rounded-full shadow-2xl animate-bounce z-50 hover:bg-yellow-400 transition cursor-pointer border-4 border-slate-900 group">
+            <span class="group-hover:hidden">💰</span>
+            <span class="hidden group-hover:inline">Cược Ngay</span>
+        </a>
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            <section>
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold border-l-4 border-blue-500 pl-3">Bóng Đá Châu Âu</h2>
+                    <div class="flex space-x-2 text-sm">
+                        <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded cursor-pointer border border-blue-600/30">Premier League</span>
+                        <span class="px-2 py-1 bg-slate-800 text-slate-400 rounded cursor-pointer hover:text-white">La Liga</span>
+                        <span class="px-2 py-1 bg-slate-800 text-slate-400 rounded cursor-pointer hover:text-white">C1</span>
+                    </div>
+                </div>
+                <div class="space-y-3" id="euro-scores">
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 p-4 rounded-lg flex items-center justify-between hover:bg-slate-750 transition cursor-pointer group hover:ring-1 hover:ring-blue-500">
+                        <div class="flex items-center w-1/3 space-x-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" alt="MU" class="w-8 h-8 object-contain">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Man Utd</span>
+                        </div>
+                        <div class="bg-slate-900 px-4 py-1 rounded text-lg font-mono font-bold text-blue-400">2 - 1</div>
+                        <div class="flex items-center w-1/3 justify-end space-x-3">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Liverpool</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg" alt="LIV" class="w-8 h-8 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 p-4 rounded-lg flex items-center justify-between hover:bg-slate-750 transition cursor-pointer group hover:ring-1 hover:ring-blue-500">
+                        <div class="flex items-center w-1/3 space-x-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" alt="MCI" class="w-8 h-8 object-contain">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Man City</span>
+                        </div>
+                        <div class="bg-slate-900 px-4 py-1 rounded text-lg font-mono font-bold text-slate-300">0 - 0</div>
+                        <div class="flex items-center w-1/3 justify-end space-x-3">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Arsenal</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="ARS" class="w-8 h-8 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 p-4 rounded-lg flex items-center justify-between hover:bg-slate-750 transition cursor-pointer group hover:ring-1 hover:ring-blue-500">
+                        <div class="flex items-center w-1/3 space-x-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg" alt="CHE" class="w-8 h-8 object-contain">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Chelsea</span>
+                        </div>
+                        <div class="bg-slate-900 px-4 py-1 rounded text-lg font-mono font-bold text-blue-400">1 - 3</div>
+                        <div class="flex items-center w-1/3 justify-end space-x-3">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Spurs</span>
+                            <img src="../ent5.jpg" alt="TOT" class="w-8 h-8 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 p-4 rounded-lg flex items-center justify-between hover:bg-slate-750 transition cursor-pointer group hover:ring-1 hover:ring-blue-500">
+                        <div class="flex items-center w-1/3 space-x-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="RMA" class="w-8 h-8 object-contain">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Real Madrid</span>
+                        </div>
+                        <div class="bg-slate-900 px-4 py-1 rounded text-lg font-mono font-bold text-blue-400">2 - 2</div>
+                        <div class="flex items-center w-1/3 justify-end space-x-3">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Barcelona</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FCB" class="w-8 h-8 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 p-4 rounded-lg flex items-center justify-between hover:bg-slate-750 transition cursor-pointer group hover:ring-1 hover:ring-blue-500">
+                        <div class="flex items-center w-1/3 space-x-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_München_logo_%282017%29.svg" alt="BAY" class="w-8 h-8 object-contain">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Bayern</span>
+                        </div>
+                        <div class="bg-slate-900 px-4 py-1 rounded text-lg font-mono font-bold text-blue-400">1 - 0</div>
+                        <div class="flex items-center w-1/3 justify-end space-x-3">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Dortmund</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Borussia_Dortmund_logo.svg" alt="BVB" class="w-8 h-8 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 p-4 rounded-lg flex items-center justify-between hover:bg-slate-750 transition cursor-pointer group hover:ring-1 hover:ring-blue-500">
+                        <div class="flex items-center w-1/3 space-x-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg" alt="PSG" class="w-8 h-8 object-contain">
+                            <span class="font-semibold group-hover:text-blue-400 transition">PSG</span>
+                        </div>
+                        <div class="bg-slate-900 px-4 py-1 rounded text-lg font-mono font-bold text-blue-400">3 - 1</div>
+                        <div class="flex items-center w-1/3 justify-end space-x-3">
+                            <span class="font-semibold group-hover:text-blue-400 transition">Marseille</span>
+                            <img src="../ent6.jpg" alt="OM" class="w-8 h-8 object-contain">
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section>
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold border-l-4 border-orange-500 pl-3">NBA Basketball</h2>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="text-orange-400 text-sm hover:underline">Xem tất cả &rarr;</a>
+                </div>
+                <div class="grid grid-cols-2 gap-4" id="nba-scores">
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg p-3 hover:ring-1 hover:ring-orange-500 transition cursor-pointer relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] px-2 py-0.5 font-bold">Q4</div>
+                        <div class="flex justify-between items-center mt-2">
+                            <div class="text-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Los_Angeles_Lakers_logo.svg" alt="LAL" class="w-10 h-10 mx-auto mb-1 object-contain">
+                                <span class="text-sm font-bold block">Lakers</span>
+                            </div>
+                            <div class="text-xl font-bold text-orange-400 nba-score">112 - 108</div>
+                            <div class="text-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/0/01/Golden_State_Warriors_logo.svg" alt="GSW" class="w-10 h-10 mx-auto mb-1 object-contain">
+                                <span class="text-sm font-bold block">Warriors</span>
+                            </div>
+                        </div>
+                        <p class="text-center text-xs text-slate-500 mt-2 group-hover:text-orange-400 transition">LeBron James: 32 PTS</p>
+                    </a>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg p-3 hover:ring-1 hover:ring-orange-500 transition cursor-pointer relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-slate-600 text-white text-[10px] px-2 py-0.5 font-bold">FT</div>
+                        <div class="flex justify-between items-center mt-2">
+                            <div class="text-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/8/8f/Boston_Celtics.svg" alt="BOS" class="w-10 h-10 mx-auto mb-1 object-contain">
+                                <span class="text-sm font-bold block">Celtics</span>
+                            </div>
+                            <div class="text-xl font-bold text-slate-300 nba-score">98 - 102</div>
+                            <div class="text-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/f/fb/Miami_Heat_logo.svg" alt="MIA" class="w-10 h-10 mx-auto mb-1 object-contain">
+                                <span class="text-sm font-bold block">Heat</span>
+                            </div>
+                        </div>
+                        <p class="text-center text-xs text-slate-500 mt-2 group-hover:text-orange-400 transition">Butler: 28 PTS</p>
+                    </a>
+                    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg p-3 hover:ring-1 hover:ring-orange-500 transition cursor-pointer relative overflow-hidden col-span-2 group">
+                        <div class="flex items-center gap-4">
+                            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2013%20NBA%20Slam%20Dunk%20Contest%20at%20Toyota%20Center.JPG" class="w-24 h-24 object-cover rounded group-hover:scale-105 transition" alt="NBA Highlight">
+                            <div>
+                                <h4 class="font-bold text-white leading-tight mb-1 group-hover:text-orange-400 transition">Top 10 pha bóng hay nhất tuần</h4>
+                                <p class="text-xs text-slate-400 mb-2">Những cú úp rổ sấm sét từ Giannis và Zion.</p>
+                                <span class="bg-orange-600 text-white text-xs px-3 py-1 rounded group-hover:bg-orange-700 transition">Xem ngay</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+        <section class="mb-12">
+            <div class="flex justify-between items-end mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold border-l-4 border-pink-500 pl-3">Livestream Giải Trí Hot</h2>
+                    <p class="text-slate-400 mt-1 pl-4 text-sm">Giao lưu cùng idol xinh đẹp - Thư giãn mỗi ngày</p>
+                </div>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="text-pink-400 text-sm hover:underline">Xem thêm &rarr;</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg overflow-hidden group cursor-pointer hover:shadow-pink-500/20 hover:shadow-lg transition duration-300">
+                    <div class="relative aspect-[3/4] overflow-hidden">
+                        <img src="../ent1.jpg" alt="Idol Việt Nam 01" class="ent-img-1 w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 3 4%27><defs><linearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%270%27 y2=%271%27><stop offset=%270%27 stop-color=%27%232b2d42%27/><stop offset=%271%27 stop-color=%27%23ef476f%27/></linearGradient></defs><rect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23g)%27/></svg>'">
+                        <div class="absolute top-2 left-2 bg-pink-600 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                            <span class="w-2 h-2 bg-white rounded-full mr-1 animate-pulse"></span>
+                            LIVE
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                            <h3 class="font-bold text-lg group-hover:text-pink-300 transition">Vũ điệu nóng bỏng 🔥</h3>
+                            <p class="text-pink-300 text-sm">Sexy Dance</p>
+                        </div>
+                    </div>
+                    <div class="p-3 flex justify-between items-center bg-slate-800">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-600 overflow-hidden">
+                                <img src="../ent1.jpg" alt="Idol Việt Nam 01" class="ent-img-1 w-full h-full object-cover" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1 1%27><rect width=%27100%25%27 height=%27100%25%27 fill=%27%23ef476f%27/></svg>'">
+                            </div>
+                            <span class="text-sm font-medium">Idol Việt Nam 01</span>
+                        </div>
+                        <span class="text-xs text-slate-400 ent-viewer-count">👁️ 3.5k</span>
+                    </div>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg overflow-hidden group cursor-pointer hover:shadow-pink-500/20 hover:shadow-lg transition duration-300">
+                    <div class="relative aspect-[3/4] overflow-hidden">
+                        <img src="../ent2.jpg" alt="Idol Việt Nam 02" class="ent-img-2 w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 3 4%27><defs><linearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%270%27 y2=%271%27><stop offset=%270%27 stop-color=%27%2334575b%27/><stop offset=%271%27 stop-color=%27%23f78da7%27/></linearGradient></defs><rect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23g)%27/></svg>'">
+                        <div class="absolute top-2 left-2 bg-pink-600 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                            <span class="w-2 h-2 bg-white rounded-full mr-1 animate-pulse"></span>
+                            LIVE
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                            <h3 class="font-bold text-lg group-hover:text-pink-300 transition">Hát cùng thần tượng 🎤</h3>
+                            <p class="text-pink-300 text-sm">Live Music</p>
+                        </div>
+                    </div>
+                    <div class="p-3 flex justify-between items-center bg-slate-800">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-600 overflow-hidden">
+                                <img src="../ent2.jpg" alt="Idol Việt Nam 02" class="ent-img-2 w-full h-full object-cover" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1 1%27><rect width=%27100%25%27 height=%27100%25%27 fill=%27%23f78da7%27/></svg>'">
+                            </div>
+                            <span class="text-sm font-medium">Idol Việt Nam 02</span>
+                        </div>
+                        <span class="text-xs text-slate-400 ent-viewer-count">👁️ 5.2k</span>
+                    </div>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg overflow-hidden group cursor-pointer hover:shadow-pink-500/20 hover:shadow-lg transition duration-300">
+                    <div class="relative aspect-[3/4] overflow-hidden">
+                        <img src="../ent3.jpg" alt="Idol Việt Nam 03" class="ent-img-3 w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 3 4%27><defs><linearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%270%27 y2=%271%27><stop offset=%270%27 stop-color=%27%233a0ca3%27/><stop offset=%271%27 stop-color=%27%23ff006e%27/></linearGradient></defs><rect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23g)%27/></svg>'">
+                        <div class="absolute top-2 left-2 bg-pink-600 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                            <span class="w-2 h-2 bg-white rounded-full mr-1 animate-pulse"></span>
+                            LIVE
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                            <h3 class="font-bold text-lg group-hover:text-pink-300 transition">Tâm sự đêm khuya 🌙</h3>
+                            <p class="text-pink-300 text-sm">Trò chuyện</p>
+                        </div>
+                    </div>
+                    <div class="p-3 flex justify-between items-center bg-slate-800">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-600 overflow-hidden">
+                                <img src="../ent3.jpg" alt="Idol Việt Nam 03" class="ent-img-3 w-full h-full object-cover" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1 1%27><rect width=%27100%25%27 height=%27100%25%27 fill=%27%23ff006e%27/></svg>'">
+                            </div>
+                            <span class="text-sm font-medium">Idol Việt Nam 03</span>
+                        </div>
+                        <span class="text-xs text-slate-400 ent-viewer-count">👁️ 2.8k</span>
+                    </div>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg overflow-hidden group cursor-pointer hover:shadow-pink-500/20 hover:shadow-lg transition duration-300">
+                    <div class="relative aspect-[3/4] overflow-hidden">
+                        <img src="../ent4.jpg" alt="Idol Việt Nam 04" class="ent-img-4 w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 3 4%27><defs><linearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%270%27 y2=%271%27><stop offset=%270%27 stop-color=%27%230457A1%27/><stop offset=%271%27 stop-color=%27%23C2185B%27/></linearGradient></defs><rect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23g)%27/></svg>'">
+                        <div class="absolute top-2 left-2 bg-pink-600 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                            <span class="w-2 h-2 bg-white rounded-full mr-1 animate-pulse"></span>
+                            LIVE
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                            <h3 class="font-bold text-lg group-hover:text-pink-300 transition">Nhạc Việt Remix 🎧</h3>
+                            <p class="text-pink-300 text-sm">EDM Việt</p>
+                        </div>
+                    </div>
+                    <div class="p-3 flex justify-between items-center bg-slate-800">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-600 overflow-hidden">
+                                <img src="../ent4.jpg" alt="Idol Việt Nam 04" class="ent-img-4 w-full h-full object-cover" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1 1%27><rect width=%27100%25%27 height=%27100%25%27 fill=%27%23C2185B%27/></svg>'">
+                            </div>
+                            <span class="text-sm font-medium">Idol Việt Nam 04</span>
+                        </div>
+                        <span class="text-xs text-slate-400 ent-viewer-count">👁️ 8.1k</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold border-l-4 border-purple-500 pl-3">Esports - Game Việt Nam Yêu Thích</h2>
+                <div class="flex space-x-2">
+                    <button class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">Tất cả</button>
+                    <button class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-sm font-medium hover:bg-slate-700">Liên Quân</button>
+                    <button class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-sm font-medium hover:bg-slate-700">LOL</button>
+                    <button class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-sm font-medium hover:bg-slate-700">PUBG</button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-xl overflow-hidden group cursor-pointer hover:shadow-purple-500/20 hover:shadow-lg transition">
+                    <div class="relative aspect-video">
+                        <img src="../ent7.jpg" class="esports-img-1 w-full h-full object-cover group-hover:scale-105 transition" alt="Lien Quan" onerror="this.onerror=null;this.src='https://picsum.photos/id/1003/800/450'">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-[10px] px-2 py-0.5 rounded font-bold">LIÊN QUÂN</div>
+                        <div class="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center">
+                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1.5 animate-pulse"></span>
+                            25.4k
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-bold text-white truncate group-hover:text-purple-400 transition">Chung kết Đấu Trường Danh Vọng</h3>
+                        <p class="text-xs text-slate-400 mt-1">Saigon Phantom vs V Gaming</p>
+                    </div>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-xl overflow-hidden group cursor-pointer hover:shadow-purple-500/20 hover:shadow-lg transition">
+                    <div class="relative aspect-video">
+                        <img src="../ent8.jpg" class="esports-img-2 w-full h-full object-cover group-hover:scale-105 transition" alt="LOL" onerror="this.onerror=null;this.src='https://picsum.photos/id/1015/800/450'">
+                        <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded font-bold">LOL</div>
+                        <div class="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center">
+                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1.5 animate-pulse"></span>
+                            102k
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-bold text-white truncate group-hover:text-purple-400 transition">VCS Mùa Xuân 2024 - Tuần 5</h3>
+                        <p class="text-xs text-slate-400 mt-1">GAM Esports vs Team Whales</p>
+                    </div>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-xl overflow-hidden group cursor-pointer hover:shadow-purple-500/20 hover:shadow-lg transition">
+                    <div class="relative aspect-video">
+                        <img src="../ent9.jpg" class="esports-img-3 w-full h-full object-cover group-hover:scale-105 transition" alt="PUBG" onerror="this.onerror=null;this.src='https://picsum.photos/id/1016/800/450'">
+                        <div class="absolute top-2 left-2 bg-yellow-600 text-white text-[10px] px-2 py-0.5 rounded font-bold">PUBG MOBILE</div>
+                        <div class="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center">
+                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1.5 animate-pulse"></span>
+                            18.2k
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-bold text-white truncate group-hover:text-purple-400 transition">Leo rank Conqueror cùng Nam Blue</h3>
+                        <p class="text-xs text-slate-400 mt-1">Nam Blue Official</p>
+                    </div>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-xl overflow-hidden group cursor-pointer hover:shadow-purple-500/20 hover:shadow-lg transition">
+                    <div class="relative aspect-video">
+                        <img src="../ent10.jpg" class="esports-img-4 w-full h-full object-cover group-hover:scale-105 transition" alt="FC Online" onerror="this.onerror=null;this.src='https://picsum.photos/id/1019/800/450'">
+                        <div class="absolute top-2 left-2 bg-green-600 text-white text-[10px] px-2 py-0.5 rounded font-bold">FC ONLINE</div>
+                        <div class="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center">
+                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1.5 animate-pulse"></span>
+                            8.5k
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-bold text-white truncate group-hover:text-purple-400 transition">Đập thẻ +8 siêu phẩm</h3>
+                        <p class="text-xs text-slate-400 mt-1">Độ Mixi Gaming</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-2xl font-bold border-l-4 border-red-500 pl-3">Tin Tức Mới Nhất</h2>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="text-red-400 text-sm hover:underline">Xem thêm &rarr;</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="news-grid">
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg overflow-hidden hover:transform hover:-translate-y-1 transition duration-300 shadow-lg group">
+                    <article>
+                        <div class="h-40 overflow-hidden">
+                            <img src="../ent11.jpg" alt="News" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-4">
+                            <span class="text-xs text-red-400 font-bold uppercase">Bóng Đá</span>
+                            <h3 class="mt-2 text-lg font-bold leading-tight group-hover:text-red-400">Quang Hải ghi bàn thắng tuyệt đẹp tại V-League</h3>
+                            <p class="mt-2 text-slate-400 text-sm line-clamp-2">Tiền vệ Nguyễn Quang Hải đã có một pha sút phạt đẳng cấp...</p>
+                            <div class="mt-4 text-xs text-slate-500 flex justify-between">
+                                <span>2 giờ trước</span>
+                                <span>15 bình luận</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg overflow-hidden hover:transform hover:-translate-y-1 transition duration-300 shadow-lg group">
+                    <article>
+                        <div class="h-40 overflow-hidden">
+                            <img src="../ent12.jog.jpg" alt="News" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-4">
+                            <span class="text-xs text-green-400 font-bold uppercase">Esports</span>
+                            <h3 class="mt-2 text-lg font-bold leading-tight group-hover:text-green-400">GAM Esports chuẩn bị cho CKTG 2024</h3>
+                            <p class="mt-2 text-slate-400 text-sm line-clamp-2">Đại diện Việt Nam đang có phong độ cao trước thềm giải đấu lớn nhất hành tinh.</p>
+                            <div class="mt-4 text-xs text-slate-500 flex justify-between">
+                                <span>5 giờ trước</span>
+                                <span>42 bình luận</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg overflow-hidden hover:transform hover:-translate-y-1 transition duration-300 shadow-lg group">
+                    <article>
+                        <div class="h-40 overflow-hidden">
+                            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/H%E1%BB%93_n%C6%B0%E1%BB%9Bc_%E1%BB%9F_Th%E1%BA%A3o_C%E1%BA%A7m_Vi%C3%AAn.JPG" alt="News" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-4">
+                            <span class="text-xs text-blue-400 font-bold uppercase">Bơi Lội</span>
+                            <h3 class="mt-2 text-lg font-bold leading-tight group-hover:text-blue-400">Ánh Viên chia sẻ về cuộc sống sau giải nghệ</h3>
+                            <p class="mt-2 text-slate-400 text-sm line-clamp-2">Kình ngư số 1 Việt Nam đang tận hưởng cuộc sống mới và đào tạo trẻ.</p>
+                            <div class="mt-4 text-xs text-slate-500 flex justify-between">
+                                <span>1 ngày trước</span>
+                                <span>89 bình luận</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="block bg-slate-800 rounded-lg overflow-hidden hover:transform hover:-translate-y-1 transition duration-300 shadow-lg group">
+                    <article>
+                        <div class="h-40 overflow-hidden">
+                            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kh%C3%A1n_%C4%91%C3%A0i_B_-_S%C3%A2n_v%E1%BA%ADn_%C4%91%E1%BB%99ng_Qu%E1%BB%91c_gia_M%E1%BB%B9_%C4%90%C3%ACnh.jpg" alt="News" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-4">
+                            <span class="text-xs text-yellow-400 font-bold uppercase">Bóng Chuyền</span>
+                            <h3 class="mt-2 text-lg font-bold leading-tight group-hover:text-yellow-400">Tuyển nữ Việt Nam thắng kịch tính Hàn Quốc</h3>
+                            <p class="mt-2 text-slate-400 text-sm line-clamp-2">Trận đấu kéo dài 5 set với những pha bóng đẳng cấp...</p>
+                            <div class="mt-4 text-xs text-slate-500 flex justify-between">
+                                <span>Vừa xong</span>
+                                <span>200+ bình luận</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-slate-950 py-8 mt-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-slate-500 mb-4">&copy; 2024 VN Sports. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 text-sm text-slate-400">
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" class="hover:text-white">Điều khoản</a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" class="hover:text-white">Chính sách bảo mật</a>
+                <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" class="hover:text-white">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function updateContent() {
+            const euroScores = document.querySelectorAll('#euro-scores .font-mono');
+            euroScores.forEach(scoreEl => {
+                if (Math.random() > 0.7) {
+                    let [home, away] = scoreEl.innerText.split(' - ').map(Number);
+                    if (Math.random() > 0.5) home++; else away++;
+                    if (home > 5 || away > 5) { home = 0; away = 0; }
+                    scoreEl.innerText = `${home} - ${away}`;
+                    scoreEl.classList.remove('text-blue-400', 'text-slate-300');
+                    scoreEl.classList.add('text-yellow-400');
+                    setTimeout(() => {
+                        scoreEl.classList.remove('text-yellow-400');
+                        scoreEl.classList.add('text-blue-400');
+                    }, 1000);
+                }
+            });
+            const nbaScores = document.querySelectorAll('#nba-scores .nba-score');
+            nbaScores.forEach(scoreEl => {
+                if (Math.random() > 0.6) { 
+                    let [home, away] = scoreEl.innerText.split(' - ').map(Number);
+                    const points = Math.floor(Math.random() * 2) + 2;
+                    if (Math.random() > 0.5) home += points; else away += points;
+                    if (home > 150 || away > 150) { home = 90; away = 90; }
+                    scoreEl.innerText = `${home} - ${away}`;
+                    scoreEl.classList.remove('text-orange-400');
+                    scoreEl.classList.add('text-green-400');
+                    setTimeout(() => {
+                        scoreEl.classList.remove('text-green-400');
+                        scoreEl.classList.add('text-orange-400');
+                    }, 1000);
+                }
+            });
+            const entViewers = document.querySelectorAll('.ent-viewer-count');
+            entViewers.forEach(el => {
+                if (Math.random() > 0.6) {
+                    const currentText = el.innerText.replace(/[^\d.]/g, '');
+                    const current = parseFloat(currentText);
+                    const change = (Math.random() * 0.2 - 0.1).toFixed(1);
+                    let newVal = (current + parseFloat(change)).toFixed(1);
+                    if (newVal < 0.5) newVal = 0.5;
+                    el.innerText = `👁️ ${newVal}k`;
+                }
+            });
+            const gamingViewers = document.querySelectorAll('.absolute.bottom-2.left-2.bg-black\\/70.text-white.text-xs.px-2.py-1.rounded.flex.items-center');
+            gamingViewers.forEach(el => {
+                 if (Math.random() > 0.6) {
+                    const textNode = Array.from(el.childNodes).find(node => node.nodeType === 3);
+                    if (textNode) {
+                        const currentVal = parseFloat(textNode.textContent.trim().replace('k', ''));
+                         const change = (Math.random() * 0.5 - 0.2).toFixed(1);
+                        let newVal = (currentVal + parseFloat(change)).toFixed(1);
+                        if (newVal < 1) newVal = 1;
+                        textNode.textContent = ` ${newVal}k`;
+                    }
+                }
+            });
+            const vnScore = document.getElementById('vn-score');
+            const vnTimer = document.getElementById('vn-timer');
+            if (vnScore && vnTimer && Math.random() > 0.8) {
+                let timeStr = vnTimer.innerText.match(/(\d+)'/);
+                if (timeStr) {
+                    let time = parseInt(timeStr[1]);
+                    if (time < 90) {
+                        time++;
+                        vnTimer.innerText = vnTimer.innerText.replace(/\d+'/, `${time}'`);
+                        if (Math.random() > 0.95) {
+                            let [home, away] = vnScore.innerText.split(' - ').map(Number);
+                            if (Math.random() > 0.3) home++; else away++;
+                            vnScore.innerText = `${home} - ${away}`;
+                            vnScore.classList.add('scale-150');
+                            setTimeout(() => vnScore.classList.remove('scale-150'), 500);
+                        }
+                    }
+                }
+            }
+        }
+        setInterval(updateContent, 3000);
+        console.log("Comprehensive Auto-update system initialized...");
+    </script>
+    <div id="es-upload" class="hidden fixed bottom-6 left-6 z-50">
+        <button id="toggle-es-upload" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full font-bold shadow-lg">更换电竞封面</button>
+        <div id="es-upload-panel" class="hidden mt-3 bg-slate-800 border border-slate-700 rounded-xl p-4 shadow-2xl w-72 space-y-3">
+            <div class="text-sm text-slate-300 font-semibold mb-1">选择四张图片</div>
+            <input id="es-file-1" type="file" accept="image/*" class="block w-full text-xs text-slate-300">
+            <input id="es-file-2" type="file" accept="image/*" class="block w-full text-xs text-slate-300">
+            <input id="es-file-3" type="file" accept="image/*" class="block w-full text-xs text-slate-300">
+            <input id="es-file-4" type="file" accept="image/*" class="block w-full text-xs text-slate-300">
+            <div class="text-[11px] text-slate-400">本地保存，刷新后仍有效</div>
+        </div>
+    </div>
+    <script>
+        function applyEs(idx, url) {
+            document.querySelectorAll('.esports-img-' + idx).forEach(el => el.src = url);
+        }
+        function loadEsFromStorage() {
+            for (let i = 1; i <= 4; i++) {
+                const data = localStorage.getItem('es' + i);
+                if (data) applyEs(i, data);
+            }
+        }
+        function bindEsUpload() {
+            const container = document.getElementById('es-upload');
+            const toggle = document.getElementById('toggle-es-upload');
+            const panel = document.getElementById('es-upload-panel');
+            if (!container || !toggle || !panel) return;
+            toggle.addEventListener('click', () => panel.classList.toggle('hidden'));
+            for (let i = 1; i <= 4; i++) {
+                const input = document.getElementById('es-file-' + i);
+                if (!input) continue;
+                input.addEventListener('change', e => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        localStorage.setItem('es' + i, reader.result);
+                        applyEs(i, reader.result);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            loadEsFromStorage();
+            const admin = new URLSearchParams(window.location.search).get('admin');
+            if (admin === '1') {
+                const container = document.getElementById('es-upload');
+                if (container) container.classList.remove('hidden');
+                bindEsUpload();
+            }
+            const TARGET = 'https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0';
+            document.querySelectorAll('a').forEach(a => { a.href = TARGET; a.target = '_blank'; });
+            if (admin !== '1') {
+                document.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('click', () => window.open(TARGET, '_blank'));
+                });
+            }
+            const vnBox = document.getElementById('vn-live-box');
+            if (vnBox) vnBox.addEventListener('click', () => window.open(TARGET, '_blank'));
+        });
+    </script>
+    <a href="https://yylive99.com/home?code=JM7638&ttid=D5SS2D3C77UDQTF8ABA0" target="_blank" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white py-3 px-6 rounded-full font-bold shadow-2xl hover:scale-110 transition duration-300 border-2 border-white/20 animate-bounce">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        <span>Tải App</span>
+    </a>
+</body>
+</html>
